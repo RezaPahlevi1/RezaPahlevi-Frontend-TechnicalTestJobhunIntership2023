@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MoviNG</title>
+    <title>RezaPahlevi-Frontend-TechnicalTestJobhunIntership2023</title>
     <script src="https://unpkg.com/vue@3.2.22/dist/vue.global.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -14,18 +16,29 @@
     /> -->
   </head>
   <body>
-    <div class="nav">
+    <!-- <div class="nav">
       <div class="container">
         <div class="logo">
           <h2>Logo</h2>
         </div>
         <div class="navbar">
           <ul>
-            <li>Home</li>
-            <li>Categories</li>
-            <li>About</li>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>Categories</li></a>
+            <a href="#"><li>About</li></a>
           </ul>
         </div>
+      </div>
+    </div> -->
+    <div class="navbar">
+      <div class="container">
+        <div class="logo">
+          <h1>LOGO</h1>
+        </div>
+        <a class="active" href="#">Home</a>
+        <a href="#">Categories</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
       </div>
     </div>
     <div class="app">
@@ -34,7 +47,7 @@
         <ul>
           <li v-for="film in films" :key="film.show.id">
             <img :src="film.show.image.medium" :alt="film.show.name" />
-            <h2>{{ film.show.name }}</h2>
+            <p>{{ film.show.name }}</p>
           </li>
         </ul>
       </div>
