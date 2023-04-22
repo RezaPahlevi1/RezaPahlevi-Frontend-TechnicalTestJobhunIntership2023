@@ -6,7 +6,7 @@ body {
   width: 100%;
   padding: 15px 0px 150px 0px;
   text-align: center;
-  background-image: linear-gradient(to right, #fdf7c3, #ffdeb4);
+  background-image: linear-gradient(to right, #fdf7c3, black);
   height: 100vh;
 }
 .upper {
