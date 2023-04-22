@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoviNG</title>
+    <script src="https://unpkg.com/vue@3.2.22/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    /> -->
+  </head>
+  <body>
+    <div class="nav">
+      <div class="container">
+        <div class="logo">
+          <h2>Logo</h2>
+        </div>
+        <div class="navbar">
+          <ul>
+            <li>Home</li>
+            <li>Categories</li>
+            <li>About</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="app">
+      <div class="container">
+        <h1>Girls Film List</h1>
+        <ul>
+          <li v-for="film in films" :key="film.show.id">
+            <img :src="film.show.image.medium" :alt="film.show.name" />
+            <h2>{{ film.show.name }}</h2>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <div class="footer">
+      <div class="container">
+        <div class="logo-footer">
+          <h1>Logo</h1>
+          <ul>
+            <li>App Store</li>
+            <li>Play Store</li>
+          </ul>
+        </div>
+        <ul>
+          <li class="footer-list">Contact Us</li>
+          <li class="footer-list">About Us</li>
+          <li class="footer-list">Help & FAQ</li>
+          <li class="footer-list">Term & Conditions</li>
+          <li class="footer-list">Privacy</li>
+        </ul>
+      </div>
+    </div> -->
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            films: [],
+          };
+        },
+        mounted() {
+          fetch("http://api.tvmaze.com/search/shows?q=girls")
+            .then((response) => response.json())
+            .then((data) => {
+              this.films = data;
+            })
+            .catch((error) => console.log(error));
+        },
+      });
+
+      app.mount(".app");
+    </script>
+  </body>
+</html>
